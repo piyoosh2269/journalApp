@@ -31,6 +31,8 @@
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<sonar.login>squ_2ca6529a0c44ecc3d813ee6194ae14d46cd40c20</sonar.login>
 		<java.version>17</java.version>
+		<sonar.organization>piyush</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<dependencies>
