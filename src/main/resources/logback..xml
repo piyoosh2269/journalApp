@@ -1,0 +1,49 @@
+<configuration>
+
+    <!-- Console Appender: Logs messages to the console (standard output) -->
+    <appender name="myConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- File Appender: Logs messages to a file with rolling policies -->
+    <appender name="myFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <!-- Specify the log file location -->
+        <file>C:\Users\pk956\OneDrive\Desktop\SpringBoot\journalApp/logs/JournalApp.log</file>
+
+        <!-- Rolling policy to manage log rotation -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+
+            <!-- Log file naming pattern with timestamp and index -->
+            <fileNamePattern>journalApp-%d{yy-MM-dd_HH-mm}.%i.log</fileNamePattern>
+
+            <!-- Maximum size allowed per log file before rolling over -->
+            <maxFileSize>10MB</maxFileSize>
+
+            <!-- Number of historical log files to retain -->
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+
+        <!-- Log message format for the file logs -->
+        <encoder>
+            <pattern>
+                %d{yy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root Logger Configuration -->
+    <root level="INFO">
+
+        <!-- Attach the console appender to log messages in the console -->
+        <appender-ref ref="myConsoleAppender" />
+
+        <!-- Attach the file appender to log messages in a file -->
+        <appender-ref ref="myFileAppender" />
+    </root>
+
+</configuration>
